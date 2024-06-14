@@ -1,8 +1,9 @@
 ---
-layout: post_left
+layout: post
 title: "Blog Post - Left Sidebar"
 date: 2018-12-06 8:14:30 +0600
-tags: education
+tags: 어린이날 전도
+category: 새소식반
 post_image: https://cdn.stocksnap.io/img-thumbs/960w/LDMEHW1TYG.jpg
 comment: true
 ---

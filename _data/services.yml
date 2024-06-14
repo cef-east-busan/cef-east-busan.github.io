@@ -1,18 +1,18 @@
-- title: Knowledge Base
+- title: 지회소개
   icon: /assets/images/service-icon2.png
-  description: psum is simply dummy text of the pritypesetting industry Lorem Ipsum has been the industry’s standard
-  button_label: Learn More
+  description: (원하는 글 입력)
+  button_label: -->
   url: /pages/explore-topics/
   
-- title: Question Answer
+- title: 사역소개
   icon: /assets/images/service-icon.png
-  description:  It has survived not only five centuries, but also the leap into electronic typesetting, remaining.
-  button_label: Read FAQ
+  description:  (원하는 글 입력)
+  button_label: -->
   url: /pages/faq/
   
-- title: Documentation
+- title: 오시는길
   icon: /assets/images/service-icon3.png
-  description:  It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.
-  button_label: Read Docs
-  url: /docs/left-sidebar-example
+  description: (원하는 글 입력)
+  button_label: -->
+  url: /pages/contact.html
   

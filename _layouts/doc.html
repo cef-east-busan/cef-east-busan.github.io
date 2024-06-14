@@ -13,83 +13,77 @@ layout: default
         </div>
       </div>
       <div class="row">
-	  {% if page.custom_links != nil %}
-
+        {% if page.custom_links != nil %}
         <div class="col-md-3">
           <div class="custom-links">
-            <h5>In this article</h5>         
-			  <ul class="nav navbar-nav" id="nav">
-			{% for link in page.custom_links %}
-					{% assign active = nil %}
+            <h5>In this article</h5>
+            <ul class="nav navbar-nav" id="nav">
+              {% for link in page.custom_links %}
+              <li class="subitem">
 
-					{% for sublink in link.submenu %}
-						{% if page.url contains sublink.url %}
-							{% assign active = 'active' %}
-						{% endif %}
-					{% endfor %}
+              <!-- shows the categories, custom-link -->
 
-					{% if page.url contains link.url %}
-						{% assign active = 'active' %}
-					{% endif %}
-
-					<li class="subitem">
-						<a href="{{ link.url | relative_url }}">{{ link.text }}  
-						
-						</a>{% if link.submenu %}<a class="pb-0 pt-0" href="#nav"><i class="fa fa-angle-right"></i></a> {% endif %}
-
-						{% if link.submenu %}						
-							 <ul class="sub-dropdown">
-								{% for sublink in link.submenu %}
-									<li {% if page.url contains sublink.url %}class="active"{% endif %}>
-										<a href="{{ sublink.url | relative_url }}">{{ sublink.text }}</a>
-									</li>
-								{% endfor %}
-							</ul>
-						{% endif %}
-					</li>
-				{% endfor %}
-			</ul>			
+                <a href="#" class="custom-link" data-tag="{{ link.text }}">{{ link.text }}</a>
+              </li>
+              {% endfor %}
+            </ul>
           </div>
         </div>
-		{% endif %}
-		
-		
-		{% assign col = "6" %}
-		
-		{% if page.toc != true %}		
-		{% assign col1 = "3" %}		
-		{% endif %}
-		
-		{% if page.custom_links == nil %}
-		{% assign col2 = "3" %} 		
-		{% endif %}	
-		
-		
+        {% endif %}
+        
+        {% assign col = "6" %}
+        {% if page.toc != true %}
+        {% assign col1 = "3" %}
+        {% endif %}
+        {% if page.custom_links == nil %}
+        {% assign col2 = "3" %}
+        {% endif %}
+        
         <div class="col-md-{{ col | plus: col1 | plus: col2 }}">
           <div class="tutorial-content mx-auto">
-            <div class="doc-content">		
-              {{content}}
+            <div class="doc-content" id="doc-content">
+            </div>
+            <div>
+              <p>Welcome! Please select a link to filter the posts.</p>
+              <table id="posts-table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for post in site.posts %}
+
+                    <!-- shows the rows of filtered rows, post-link -->
+                    {% if post.category == page.title %}
+                    <tr class="post-row" data-tags="{{ post.tags | join: ' ' }}" category-tags="{{ post.category | join: ' ' }}">  
+                      <td><a href="#" class="post-link" data-url="{{ post.url }}">{{ post.title }}</a></td>
+                      <td>{% if post.author %}<a href="{{ post.author_url }}">{{ post.author }}</a>{% else %}Unknown{% endif %}</td>
+                      <td>{{ post.date | date_to_long_string }}</td>
+                    </tr>
+                    {% endif %}
+                  {% endfor %}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
-		{% if page.toc == true %}
+        {% if page.toc == true %}
         <div class="col-md-3">
-          <div class=" doc-sidebar-menu doc-right-sidebar">
-
+          <div class="doc-sidebar-menu doc-right-sidebar">
             <div>
               <div id="table-of-contents">
-               <h5 class="px-3 pt-3">Table of Content</h5>
-				 {% include toc.html html=content %}
+                <h5 class="px-3 pt-3">Table of Content</h5>
+                {% include toc.html html=content %}
               </div>
-
             </div>
-
           </div>
         </div>
-		{% endif %}
+        {% endif %}
       </div>
     </div>
-  </div>
   </div>
 </section>
 
@@ -97,14 +91,60 @@ layout: default
 {% include support_area_2.html %}
 {% include footer.html %}
 
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
-  var headings = document.querySelectorAll("h2[id]");
-  for (var i = 0; i < headings.length; i++) {
-    var anchorLink = document.createElement("a");
-    anchorLink.innerText = "#";
-    anchorLink.href = "#" + headings[i].id;
-    anchorLink.classList.add("header-link");
+  document.addEventListener("DOMContentLoaded", function() {
+    var links = document.querySelectorAll(".custom-link");
+    var postLinks = document.querySelectorAll(".post-link");
+    
+    // Function to filter posts based on custom links
+    links.forEach(function(link) {
+      link.addEventListener("click", function(event) {
+        event.preventDefault();
+        var tag = event.target.getAttribute("data-tag");
+        console.log('tag', tag);
+        // Hide all table rows initially
+        var rows = document.querySelectorAll(".post-row");
+        rows.forEach(function(row) {
+          if (row.getAttribute("data-tags") === tag) {
+            row.style.display = "";
+          } else {
+            row.style.display = "none";
+          }
+        });
 
-    headings[i].appendChild(anchorLink);
-  }
+        // Update doc-content with the filtered table rows
+        var docContent = document.getElementById("doc-content");
+        docContent.innerHTML = "<p><a href='" + location.href + "''>" + document.title + "</a> > " + tag + "</p>";
+      });
+    });
+
+    // Function to fetch and display post content on post-link click
+    postLinks.forEach(function(postLink) {
+      postLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        var url = event.target.getAttribute("data-url");
+        var contentDiv = document.getElementById("doc-content");
+
+        // Fetch the post content using AJAX
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            // Extract the post content
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(data, 'text/html');
+            var postTitle = doc.querySelector('h2.post-title').outerHTML;
+            var postMeta = doc.querySelector('ul.post-meta').outerHTML;
+            var postBody = doc.querySelector('.post-body').innerHTML;
+
+            // Combine the post elements
+            var htmlContent = postTitle + postMeta + postBody;
+            contentDiv.innerHTML = htmlContent;
+          })
+          .catch(error => {
+            contentDiv.innerHTML = "<p>Error loading content. Please try again later.</p>";
+          });
+      });
+    });
+  });
 </script>

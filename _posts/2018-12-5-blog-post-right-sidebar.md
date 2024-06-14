@@ -2,7 +2,8 @@
 layout: post
 title: "Blog Post - Right Sidebar"
 date: 2018-12-05 8:14:30 +0600
-tags: education
+tags: 어린이날 전도
+category: 새소식반
 post_image: https://cdn.stocksnap.io/img-thumbs/960w/LDMEHW1TYG.jpg
 comment: true
 excerpt: consectetur adipisicing elit. Suscipit est velit similique laborum, cumque aliquam porro dicta debitis repellat, tempore dignissimos, neque ab fuga voluptatibus.

@@ -3,7 +3,8 @@ layout: post
 title: "10 essential UI (user-interface) design tips"
 description: "Here is the meta description"
 date: 2018-12-02 8:14:30 +0600
-tags: ecommerce shoping
+tags: 파티전도
+category: 새소식반
 post_image: https://cdn.stocksnap.io/img-thumbs/960w/DBSSPR0O2Z.jpg
 comment: true
 author: themeix

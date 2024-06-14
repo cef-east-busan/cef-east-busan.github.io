@@ -1,46 +1,27 @@
 
-- text: 죄회소개
+- text: 최신글
   url: /
-  submenu:
-  - text: 동부산지회소개
-    url: /
-  - text: 섬기는분들
-    url: /
-  - text: 오시는길
-    url: /pages/contact
-- text: 교사교육&훈련사역
+
+- text: 어린이전도협회란?
+  url: /pages/support
+  submenu: 
+    - text: 부산지회 교사교육원
+      url: /docs/부산지회-교사교육원
+
+- text: 지회소개
   url: /pages/support
   submenu:
-  - text: 교사교육&훈련사역
-    url: /docs/file-structure/
-- text: 어린이전도사역
-  url: /blog
+  - text: 오시는길
+    url: /pages/contact/
+
+- text: 사역소개
+  url: /pages/support
   submenu:
-  - text: 어린이전도사역
-    url: /docs/file-structure/
-- text: 어린이전도협회 교육원
-  url: /explore-topics
-  submenu:
-  - text: 어린이전도협회 교육원
-    url: /docs/file-structure/
-  - text: 교육원 오시는 길
-    url: /docs/client-editable-jekyll-sites/
-- text: 커뮤니티
-  url: /
-  submenu:
-  - text: 새소식반 교사게시판
-    url: /pages/changelog  
-  - text: 사역안내
-    url: /pages/privacy-policy    
-  - text: 포토갤러리
-    url: /pages/faq 
-  - text: 유치부 지도자세미나
-    url: /pages/submit-ticket
-  - text: CEF 후원안내
-    url: /pages/submit-ticket
-  - text: CEF부산 연합 성경캠프
-    url: /pages/submit-ticket
-  - text: 기타 CEF 사역
-    url: /pages/submit-ticket
-  - text: 여름성경학교 교사 강습회
-    url: /pages/submit-ticket
+  - text: 3일클럽
+    url: /docs/3일클럽/
+  - text: 새소식반
+    url: /docs/새소식반/
+  - text: 여름성경학교
+    url: /docs/여름성경학교/
+  - text: 교사교육
+    url: /docs/교사교육/

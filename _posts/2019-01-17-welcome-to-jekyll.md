@@ -2,7 +2,8 @@
 layout: post
 title:  "What To Remember While Hiring a Web ?"
 date:   2019-01-17 18:51:30 +0600
-tags: [jekyll, update]
+tags: 어린이날 전도
+category: 새소식반
 post_image: https://images.pexels.com/photos/1366901/pexels-photo-1366901.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
 comment: true
 ---

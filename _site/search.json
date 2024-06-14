@@ -1,81 +1,39 @@
 [
   
     {
-      "title"    : "Client editable Jekyll sites",
+      "title"    : "3일클럽",
       "tags"     : "Profile",
-      "url"      : "/docs/client-editable-jekyll-sites/"
+      "url"      : "/docs/3%EC%9D%BC%ED%81%B4%EB%9F%BD/"
     } ,
   
     {
-      "title"    : "File structure",
+      "title"    : "교사교육",
       "tags"     : "Profile",
-      "url"      : "/docs/file-structure/"
+      "url"      : "/docs/%EA%B5%90%EC%82%AC%EA%B5%90%EC%9C%A1/"
     } ,
   
     {
-      "title"    : "Front matter",
-      "tags"     : "Invoice",
-      "url"      : "/docs/front-matter/"
+      "title"    : "동부산",
+      "tags"     : "Profile",
+      "url"      : "/docs/%EB%8F%99%EB%B6%80%EC%82%B0/"
     } ,
   
     {
-      "title"    : "Introduction of Payment collection",
-      "tags"     : "Payment",
-      "url"      : "/docs/introduction-to-collections/"
+      "title"    : "부산지회 교사교육원",
+      "tags"     : "Profile",
+      "url"      : "/docs/%EB%B6%80%EC%82%B0%EC%A7%80%ED%9A%8C-%EA%B5%90%EC%82%AC%EA%B5%90%EC%9C%A1%EC%9B%90/"
     } ,
   
     {
-      "title"    : "Introduction of installation process",
-      "tags"     : "Installation",
-      "url"      : "/docs/layouts/"
+      "title"    : "새소식반",
+      "tags"     : "Profile",
+      "url"      : "/docs/%EC%83%88%EC%86%8C%EC%8B%9D%EB%B0%98/"
     } ,
   
     {
-      "title"    : "Why should use doxy jekyll theme?",
-      "tags"     : "Billing",
-      "url"      : "/docs/why-use-a-static-site-generator/"
-    } ,
-  
-    {
-      "title"    : "How to add a credit card?",
-      "tags"     : "Account Settings, Payment, Billing",
-      "url"      : "/docs/add-a-credit-card/"
-    } ,
-  
-    {
-      "title"    : "Auzure payment procesisng",
-      "tags"     : "Payment, Invoice, Billing",
-      "url"      : "/docs/azure/"
-    } ,
-  
-    {
-      "title"    : "Why account got banned?",
-      "tags"     : "Account Settings, Installation",
-      "url"      : "/docs/cause/"
-    } ,
-  
-    {
-      "title"    : "Doc with multiple tags/ category",
-      "tags"     : "Profile, Account Settings, Invoice",
-      "url"      : "/docs/change-email/"
-    } ,
-  
-    {
-      "title"    : "Chnage Password",
-      "tags"     : "Account Settings",
-      "url"      : "/docs/change-password/"
-    } ,
-  
-    {
-      "title"    : "Not getting cloudflare access",
-      "tags"     : "Installation",
-      "url"      : "/docs/cloud-flare/"
-    } ,
-  
-    {
-      "title"    : "Not working my credit card",
-      "tags"     : "Invoice, Profile",
-      "url"      : "/docs/creating-a-plugin/"
+      "title"    : "여름성경학교",
+      "tags"     : "Profile",
+      "url"      : "/docs/%EC%97%AC%EB%A6%84%EC%84%B1%EA%B2%BD%ED%95%99%EA%B5%90/"
     } 
   
 ]

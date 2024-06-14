@@ -2,7 +2,8 @@
 layout: post
 title: "Another consectetur adipisicing elit"
 date: 2018-12-03 8:14:30 +0600
-tags: ecommerce shoping
+tags: 파티전도 무료 강습회
+category: 새소식반
 post_image: https://cdn.stocksnap.io/img-thumbs/960w/771S335ARZ.jpg
 comment: true
 excerpt:  Lacinia wisi feugiat tellus neque dui pellentesque, libero Lorem ipsum dolor sit amet, consectetur adipisicing elit.
