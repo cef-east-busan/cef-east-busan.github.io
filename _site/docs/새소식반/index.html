@@ -272,7 +272,7 @@
 
                     <!-- shows the rows of filtered rows, post-link -->
                     
-                    <tr class="post-row" data-tags="어린이날 전도" category-tags="새소식반">  
+                    <tr class="post-row" data-tags="어린이날 전도">  
                       <td><a href="#" class="post-link" data-url="/welcome-to-jekyll/">What To Remember While Hiring a Web ?</a></td>
                       <td>Unknown</td>
                       <td>17 January 2019</td>
@@ -282,7 +282,7 @@
 
                     <!-- shows the rows of filtered rows, post-link -->
                     
-                    <tr class="post-row" data-tags="어린이날 전도" category-tags="새소식반">  
+                    <tr class="post-row" data-tags="어린이날 전도">  
                       <td><a href="#" class="post-link" data-url="/blog-post-left-sidebar/">Blog Post - Left Sidebar</a></td>
                       <td>Unknown</td>
                       <td>06 December 2018</td>
@@ -292,7 +292,7 @@
 
                     <!-- shows the rows of filtered rows, post-link -->
                     
-                    <tr class="post-row" data-tags="어린이날 전도" category-tags="새소식반">  
+                    <tr class="post-row" data-tags="어린이날 전도">  
                       <td><a href="#" class="post-link" data-url="/blog-post-right-sidebar/">Blog Post - Right Sidebar</a></td>
                       <td>Unknown</td>
                       <td>05 December 2018</td>
@@ -302,7 +302,7 @@
 
                     <!-- shows the rows of filtered rows, post-link -->
                     
-                    <tr class="post-row" data-tags="야외 전도" category-tags="새소식반">  
+                    <tr class="post-row" data-tags="야외 전도">  
                       <td><a href="#" class="post-link" data-url="/technology-placeat-ipsum-libero/">Technology placeat ipsum libero</a></td>
                       <td>Unknown</td>
                       <td>04 December 2018</td>
@@ -312,7 +312,7 @@
 
                     <!-- shows the rows of filtered rows, post-link -->
                     
-                    <tr class="post-row" data-tags="파티전도 무료 강습회" category-tags="새소식반">  
+                    <tr class="post-row" data-tags="파티전도 무료 강습회">  
                       <td><a href="#" class="post-link" data-url="/another-consectetur-adipisicing-elit/">Another consectetur adipisicing elit</a></td>
                       <td>Unknown</td>
                       <td>03 December 2018</td>
@@ -322,7 +322,7 @@
 
                     <!-- shows the rows of filtered rows, post-link -->
                     
-                    <tr class="post-row" data-tags="파티전도" category-tags="새소식반">  
+                    <tr class="post-row" data-tags="파티전도">  
                       <td><a href="#" class="post-link" data-url="/10-essential-ui-user-interface-design-tips/">10 essential UI (user-interface) design tips</a></td>
                       <td><a href="https://themeix.com">themeix</a></td>
                       <td>02 December 2018</td>
@@ -332,7 +332,7 @@
 
                     <!-- shows the rows of filtered rows, post-link -->
                     
-                    <tr class="post-row" data-tags="새소식반 주간 강습회" category-tags="새소식반">  
+                    <tr class="post-row" data-tags="새소식반 주간 강습회">  
                       <td><a href="#" class="post-link" data-url="/11-time-saving-pro-tips-for-web-designers-working-in-webflow/">11 time-saving pro tips for web designers working in Webflow</a></td>
                       <td><a href="">Insert Author Name</a></td>
                       <td>01 December 2018</td>
@@ -471,7 +471,6 @@
       link.addEventListener("click", function(event) {
         event.preventDefault();
         var tag = event.target.getAttribute("data-tag");
-        console.log('tag', tag);
         // Hide all table rows initially
         var rows = document.querySelectorAll(".post-row");
         rows.forEach(function(row) {
@@ -484,7 +483,7 @@
 
         // Update doc-content with the filtered table rows
         var docContent = document.getElementById("doc-content");
-        docContent.innerHTML = "<p><a href='" + location.href + "''>" + document.title + "</a> > " + tag + "</p>";
+        docContent.innerHTML = "<p>" + document.title + " > " + tag + "</p>";
       });
     });
 
@@ -494,7 +493,6 @@
         event.preventDefault();
         var url = event.target.getAttribute("data-url");
         var contentDiv = document.getElementById("doc-content");
-
         // Fetch the post content using AJAX
         fetch(url)
           .then(response => response.text())
@@ -502,12 +500,15 @@
             // Extract the post content
             var parser = new DOMParser();
             var doc = parser.parseFromString(data, 'text/html');
+
+            var breadCrumb = doc.querySelector('p.bread-crumb').innerHTML;
+            console.log(breadCrumb);
             var postTitle = doc.querySelector('h2.post-title').outerHTML;
             var postMeta = doc.querySelector('ul.post-meta').outerHTML;
             var postBody = doc.querySelector('.post-body').innerHTML;
 
             // Combine the post elements
-            var htmlContent = postTitle + postMeta + postBody;
+            var htmlContent =  breadCrumb + postTitle + postMeta + postBody;
             contentDiv.innerHTML = htmlContent;
           })
           .catch(error => {

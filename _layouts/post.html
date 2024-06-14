@@ -9,6 +9,7 @@ layout: default
       <div class="row">
         <div class="col-md-12">
           <div class="post-content text-center">
+            <p class="bread-crumb">{{ page.category }} > {{ page.tags }} > {{ page.title }}</p>
             <h2 class="post-title">{{ page.title }}</h2>
             <ul class="post-meta list-inline">
               {% if page.author %}

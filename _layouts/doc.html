@@ -58,7 +58,7 @@ layout: default
 
                     <!-- shows the rows of filtered rows, post-link -->
                     {% if post.category == page.title %}
-                    <tr class="post-row" data-tags="{{ post.tags | join: ' ' }}" category-tags="{{ post.category | join: ' ' }}">  
+                    <tr class="post-row" data-tags="{{ post.tags | join: ' ' }}">  
                       <td><a href="#" class="post-link" data-url="{{ post.url }}">{{ post.title }}</a></td>
                       <td>{% if post.author %}<a href="{{ post.author_url }}">{{ post.author }}</a>{% else %}Unknown{% endif %}</td>
                       <td>{{ post.date | date_to_long_string }}</td>
@@ -102,7 +102,6 @@ layout: default
       link.addEventListener("click", function(event) {
         event.preventDefault();
         var tag = event.target.getAttribute("data-tag");
-        console.log('tag', tag);
         // Hide all table rows initially
         var rows = document.querySelectorAll(".post-row");
         rows.forEach(function(row) {
@@ -115,7 +114,7 @@ layout: default
 
         // Update doc-content with the filtered table rows
         var docContent = document.getElementById("doc-content");
-        docContent.innerHTML = "<p><a href='" + location.href + "''>" + document.title + "</a> > " + tag + "</p>";
+        docContent.innerHTML = "<p>" + document.title + " > " + tag + "</p>";
       });
     });
 
@@ -125,7 +124,6 @@ layout: default
         event.preventDefault();
         var url = event.target.getAttribute("data-url");
         var contentDiv = document.getElementById("doc-content");
-
         // Fetch the post content using AJAX
         fetch(url)
           .then(response => response.text())
@@ -133,12 +131,15 @@ layout: default
             // Extract the post content
             var parser = new DOMParser();
             var doc = parser.parseFromString(data, 'text/html');
+
+            var breadCrumb = doc.querySelector('p.bread-crumb').innerHTML;
+            console.log(breadCrumb);
             var postTitle = doc.querySelector('h2.post-title').outerHTML;
             var postMeta = doc.querySelector('ul.post-meta').outerHTML;
             var postBody = doc.querySelector('.post-body').innerHTML;
 
             // Combine the post elements
-            var htmlContent = postTitle + postMeta + postBody;
+            var htmlContent =  breadCrumb + postTitle + postMeta + postBody;
             contentDiv.innerHTML = htmlContent;
           })
           .catch(error => {
