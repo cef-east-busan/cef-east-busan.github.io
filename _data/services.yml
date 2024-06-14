@@ -2,17 +2,17 @@
   icon: /assets/images/service-icon2.png
   description: (원하는 글 입력)
   button_label: -->
-  url: /pages/explore-topics/
+  url: /
   
 - title: 사역소개
   icon: /assets/images/service-icon.png
-  description:  (원하는 글 입력)
+  description: (원하는 글 입력)
   button_label: -->
-  url: /pages/faq/
+  url: /pages/사역소개/
   
 - title: 오시는길
   icon: /assets/images/service-icon3.png
   description: (원하는 글 입력)
   button_label: -->
-  url: /pages/contact.html
+  url: /pages/contact
   
