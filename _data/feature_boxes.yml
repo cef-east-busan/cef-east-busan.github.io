@@ -1,18 +1,19 @@
-- name: Knowledge Base
+- name: 3일클럽
   icon: /assets/images/feature-icon.png
   description: Pellentesque tempus consectetuer vehicula arcu, neque in mi duis felis vel tincidunt
-  button_label: Learn More
-  url: /docs/left-sidebar-example/
+  url: /docs/3일클럽/
   
-- name: Account
+- name: 새소식반
   icon: /assets/images/feature-icon2.png
   description: Pellentesque tempus consectetuer vehicula arcu, neque in mi duis felis vel tincidunt
-  button_label: Create Account
-  url: /pages/register/
+  url: /docs/새소식반/
   
-- name: General Help
+- name: 여름성경학교
   icon: /assets/images/feature-icon3.png
   description: Pellentesque tempus consectetuer vehicula arcu, neque in mi duis felis vel tincidunt
-  button_label: Contact Us
-  url: /pages/contact/
+  url: /docs/여름성경학교/
   
+- name: 교사교육
+  icon: /assets/images/feature-icon3.png
+  description: Pellentesque tempus consectetuer vehicula arcu, neque in mi duis felis vel tincidunt
+  url: /docs/교사교육/

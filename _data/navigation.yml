@@ -3,19 +3,19 @@
   url: /
 
 - text: 어린이전도협회란?
-  url: /pages/support
+  url: /
   submenu: 
     - text: 부산지회 교사교육원
       url: /docs/부산지회-교사교육원
 
 - text: 지회소개
-  url: /pages/support
+  url: /
   submenu:
   - text: 오시는길
     url: /pages/contact/
 
 - text: 사역소개
-  url: /pages/support
+  url: /pages/사역소개
   submenu:
   - text: 3일클럽
     url: /docs/3일클럽/
