@@ -248,8 +248,9 @@
         
         <div class="col-md-9">
           <div class="tutorial-content mx-auto">
-            <div class="doc-content" id="doc-content">
-            </div>
+
+            <div class="doc-content" id="doc-content"></div>
+
             <div>
               <p>Welcome! Please select a link to filter the posts.</p>
               <table id="posts-table">
@@ -293,6 +294,7 @@
                 </tbody>
               </table>
             </div>
+
           </div>
         </div>
         
@@ -422,6 +424,7 @@
       link.addEventListener("click", function(event) {
         event.preventDefault();
         var tag = event.target.getAttribute("data-tag");
+        console.log("tag", tag);
         // Hide all table rows initially
         var rows = document.querySelectorAll(".post-row");
         rows.forEach(function(row) {
@@ -461,6 +464,12 @@
             // Combine the post elements
             var htmlContent =  breadCrumb + postTitle + postMeta + postBody;
             contentDiv.innerHTML = htmlContent;
+
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"  // Use smooth scrolling if supported
+            });
+
           })
           .catch(error => {
             contentDiv.innerHTML = "<p>Error loading content. Please try again later.</p>";
