@@ -1,27 +1,44 @@
-
+- text: 홈
+  url: /
 - text: 최신글
   url: /pages/최신글
-
 - text: 어린이전도협회란?
-  url: /
-  submenu: 
-    - text: 부산지회 교사교육원
-      url: /docs/부산지회-교사교육원
-
-- text: 지회소개
-  url: /
-  submenu:
-  - text: 오시는길
-    url: /pages/contact/
-
+  url: 
 - text: 사역소개
-  url: /pages/사역소개
+  url: 
+  submenu:
+  - text: 새소식반
+    url: /docs/새소식반/
+  - text: 야외전도
+    url: /
+  - text: 3일클럽
+    url: /docs/3일클럽/
+  - text: 성경캠프
+    url: /
+  - text: 여름성경학교
+    url: /docs/여름성경학교/
+  - text: 파티전도
+    url: /
+- text: 교사교육
+  url: /docs/교사교육/
   submenu:
   - text: 3일클럽
     url: /docs/3일클럽/
-  - text: 새소식반
+  - text: TCE 교사대학
     url: /docs/새소식반/
-  - text: 여름성경학교
+  - text: 슈퍼 세미나
     url: /docs/여름성경학교/
-  - text: 교사교육
+  - text: 새소식반 주간 강습회
     url: /docs/교사교육/
+- text: About Us
+  url: /
+- text: Our Team
+  url: /
+- text: Statement of Faith
+  url: /
+- text: Donate
+  url: /
+- text: Blog
+  url: /
+- text: FAQ
+  url: /
