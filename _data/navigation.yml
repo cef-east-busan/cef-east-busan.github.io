@@ -1,7 +1,7 @@
 - text: 홈
   url: /pages/home
 
-- text: 회사소개 <img style="width:10px; height:10px;" src='/../assets/icons/arrow-down.png'>
+- text: 회사소개&nbsp;<img style="width:10px; height:10px;" src='/../assets/icons/arrow-down.png'>
   url: /pages/about-us
   submenu: 
   - text: 팀 소개
@@ -12,7 +12,7 @@
 - text: 어린이전도협회란?
   url: /pages/what-is-child-evangelism-fellowship
 
-- text: 사역소개 <img style="width:10px; height:10px;" src='/../assets/icons/arrow-down.png' alt='arrow-down'>
+- text: 사역소개&nbsp;<img style="width:10px; height:10px;" src='/../assets/icons/arrow-down.png' alt='arrow-down'>
   url: /pages/ministry-overview
   submenu:
   - text: 새소식반
@@ -28,7 +28,7 @@
   - text: 파티전도
     url: /docs/party-evangelism
 
-- text: 교사교육 <img style="width:10px; height:10px;" src='/../assets/icons/arrow-down.png' alt='arrow-down'>
+- text: 교사교육&nbsp;<img style="width:10px; height:10px;" src='/../assets/icons/arrow-down.png' alt='arrow-down'>
   url: /pages/teacher-training
   submenu:
   - text: 3일클럽 교사교육
