@@ -65,8 +65,8 @@
 
                                 
 
-                                <li class="">
-                                    <a href=""  style="color: #A9233C; font-size: medium;">홈</a>
+                                <li class="active">
+                                    <a href="/"  style="color: #A9233C; font-size: medium;">홈</a>
 
                                     
                                 </li>
@@ -243,7 +243,7 @@
             <ul class="menu" id="menu" style="padding-top: 5px; width: 100%;">
                 
                     <li class="menu-item">
-                        <a href=""  style="color: #A9233C;">홈</a>
+                        <a href="/"  style="color: #A9233C;">홈</a>
                         
                     </li>
                 
@@ -473,23 +473,33 @@
 
   <div class="splash-screen"></div>
 
-  <div class="home-container">
+  <div class="home-container" id="cef">
     <div class="home-column">
-      <h2>About Our Company</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+      <img src="/assets/images/topics-bg.jpg" alt="Company Image" style="width:80%;">
     </div>
     <div class="home-column">
-      <img src="/assets/images/topics-bg.jpg" alt="Company Image" style="width:100%;">
+      <h2 style="color: #f5ddbe;">About Our Company</h2>
+      <p style="color: white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
     </div>
   </div>
 
-  <div class="home-container">
+  <div class="home-container" id="cef-busan">
     <div class="home-column">
-      <h2>About This Branch</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+      <h2 style="color: #971A3C">About This Branch</h2>
+      <p style="color: black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
     </div>
     <div class="home-column">
-      <img src="/assets/images/blog-img.jpg" alt="Branch Image" style="width:100%;">
+      <img src="/assets/images/blog-img.jpg" alt="Branch Image" style="width:80%;">
+    </div>
+  </div>
+
+  <div class="home-container" id="latest-news">
+    <div class="home-column">
+      <img src="/assets/images/topics-bg.jpg" alt="Branch Image" style="width:80%;">
+    </div>
+    <div class="home-column">
+      <h2 style="color: #971A3C">About This Branch</h2>
+      <p style="color: black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
     </div>
   </div>
 
@@ -505,10 +515,23 @@
 
 <style>
   .splash-screen {
+    position: relative;
     width: 100%;
-    height: 800px;
+    height: 700px;
+    background-color: #971A3C;    
+    background-size: cover;
+  }
+  .splash-screen::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 700px;
     background: url('/assets/images/topics-bg.jpg') no-repeat center center;
     background-size: cover;
+
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    z-index: 1;
   }
   .home-container {
     display: flex;
@@ -520,15 +543,13 @@
     padding: 20px;
     box-sizing: border-box;
   }
-  .full-width {
-    width: 100%;
-  }
   .links-section {
     width: 100%;
     display: flex;
     justify-content: space-around;
     padding: 20px;
     box-sizing: border-box;
+    background-color: #EF9C5F;
   }
   .link-item {
     flex: 1;
@@ -538,6 +559,60 @@
     background-color: #f0f0f0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+  #cef {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    z-index: -2;
+    background-color: #F9F9E2;
+  }
+  #cef::after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+
+    background-color: #971A3C;
+
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+    z-index: -1;
+  }
+  #cef-busan {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    z-index: -2;
+    background-color: #EF9C5F;
+  }
+  #cef-busan::after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+
+    background-color: #F9F9E2;
+
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    z-index: -1;
+  }
+
+  #latest-news {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: #EF9C5F;
+  }
+
+
+  
 </style>
   
 <!-- Naver Maps API Script -->
@@ -571,7 +646,7 @@
                 </div>
                 <div class="col-md-3 col-lg-3">
                     <div class="footer-widget wow fadeIn" data-wow-duration="2s" style="margin-top:1em;">
-                        <h5>찾아오시는 길</h5>
+                        <h5>오시는 길</h5>
                         <p>부산광역시 연제구 거제천로230번길 53, 47519</p>
                     </div>
                 </div>
