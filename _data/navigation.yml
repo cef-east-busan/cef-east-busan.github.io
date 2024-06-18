@@ -1,5 +1,5 @@
 - text: 홈
-  url: /pages/home
+  url: 
 
 - text: 회사소개&nbsp;<img style="width:10px; height:10px;" src='/../assets/icons/arrow-down.png'>
   url: /pages/about-us
