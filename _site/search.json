@@ -1,39 +1,63 @@
 [
   
     {
+      "title"    : "3일클럽 교사교육",
+      "tags"     : "Profile",
+      "url"      : "/docs/3-day-club-training/"
+    } ,
+  
+    {
       "title"    : "3일클럽",
       "tags"     : "Profile",
-      "url"      : "/docs/3%EC%9D%BC%ED%81%B4%EB%9F%BD/"
+      "url"      : "/docs/3-day-club/"
     } ,
   
     {
-      "title"    : "교사교육",
+      "title"    : "성경캠프",
       "tags"     : "Profile",
-      "url"      : "/docs/%EA%B5%90%EC%82%AC%EA%B5%90%EC%9C%A1/"
+      "url"      : "/docs/bible-camp/"
     } ,
   
     {
-      "title"    : "동부산",
+      "title"    : "새소식반 주간 강습회",
       "tags"     : "Profile",
-      "url"      : "/docs/%EB%8F%99%EB%B6%80%EC%82%B0/"
-    } ,
-  
-    {
-      "title"    : "부산지회 교사교육원",
-      "tags"     : "Profile",
-      "url"      : "/docs/%EB%B6%80%EC%82%B0%EC%A7%80%ED%9A%8C-%EA%B5%90%EC%82%AC%EA%B5%90%EC%9C%A1%EC%9B%90/"
+      "url"      : "/docs/good-news-club-weekly-workshop/"
     } ,
   
     {
       "title"    : "새소식반",
       "tags"     : "Profile",
-      "url"      : "/docs/%EC%83%88%EC%86%8C%EC%8B%9D%EB%B0%98/"
+      "url"      : "/docs/good-news-club/"
+    } ,
+  
+    {
+      "title"    : "야외전도",
+      "tags"     : "Profile",
+      "url"      : "/docs/outdoor-evangelism/"
+    } ,
+  
+    {
+      "title"    : "파티전도",
+      "tags"     : "Profile",
+      "url"      : "/docs/party-evangelism/"
     } ,
   
     {
       "title"    : "여름성경학교",
       "tags"     : "Profile",
-      "url"      : "/docs/%EC%97%AC%EB%A6%84%EC%84%B1%EA%B2%BD%ED%95%99%EA%B5%90/"
+      "url"      : "/docs/summer-bible-school/"
+    } ,
+  
+    {
+      "title"    : "슈퍼 세미나",
+      "tags"     : "Profile",
+      "url"      : "/docs/super-seminar/"
+    } ,
+  
+    {
+      "title"    : "TCE 교사대학",
+      "tags"     : "Profile",
+      "url"      : "/docs/tce-teacher-college/"
     } 
   
 ]

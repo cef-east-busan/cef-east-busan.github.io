@@ -8,77 +8,188 @@
     </div>
 </div>
 <!-- Start Header Area -->
-<header class="header-area">
-    <div class="header-navigation">
+<header>
+    <div class="header-navigation" style="background-color: white; position: fixed;">
         <div class="container">
             <div class="navigation-box">
                 <div class="navigation-left">
-                    <a class="header-logo" href="{{ "/" | relative_url }}"><img style="width:80px; height:80px;" src="{{ '/assets/images/cef-logo.png' | relative_url }}" alt="header logo"></a>
+                    <a href="{{ "/" | relative_url }}"><img style="width:9em; height:3em;margin-top: 10px;" src="{{ '/assets/icons/cef-logo.png' | relative_url }}" alt="header logo"></a>
                 </div>
-               
-					
-      <div class="navigation-right">
-                     <nav class="navigation-navbar">
-                        <ul id="navigation-menu" class="slimmenu">
-				{% for link in site.data.navigation %}
-					{% assign active = nil %}
+                <div class="navigation-right">
+                    <nav class="navigation-navbar">
+                        <ul id="navigation-menu" class="slimmenu" style="padding-top: 5px;">
+                            {% for link in site.data.navigation %}
+                                {% assign active = nil %}
 
-					{% for sublink in link.submenu %}
-						{% if page.url contains sublink.url %}
-							{% assign active = 'active' %}
-						{% endif %}
-					{% endfor %}
+                                {% for sublink in link.submenu %}
+                                    {% if page.url contains sublink.url %}
+                                        {% assign active = 'active' %}
+                                    {% endif %}
+                                {% endfor %}
 
-					{% if page.url contains link.url %}
-						{% assign active = 'active' %}
-					{% endif %}
+                                {% if page.url contains link.url %}
+                                    {% assign active = 'active' %}
+                                {% endif %}
 
-					<li class="{{ active }}{% if link.submenu %} themeix-dropdown has-children{% endif %}">
-						<a href="{{ link.url | relative_url }}">{{ link.text }}</a>
+                                <li class="{{ active }}{% if link.submenu %} themeix-dropdown has-children{% endif %}">
+                                    <a href="{{ link.url | relative_url }}"  style="color: #A9233C; font-size: medium;">{{ link.text }}</a>
 
-						{% if link.submenu %}						
-							<ul class="themeix-dropdown-item" role="menu">
-								{% for sublink in link.submenu %}
-									<li {% if page.url contains sublink.url %}class="active"{% endif %}>
-										<a href="{{ sublink.url | relative_url }}">{{ sublink.text }}</a>
-									</li>
-								{% endfor %}
-							</ul>
-						{% endif %}
-					</li>
-				{% endfor %}
-			 	 <li>
-              <a class="nav-search" data-toggle="modal" data-target="#modal"><img src="{{ '/assets/images/search-logo.png' | relative_url }}" alt="nav search"></a>
+                                    {% if link.submenu %}						
+                                        <ul class="themeix-dropdown-item" role="menu">
+                                            {% for sublink in link.submenu %}
+                                                <li {% if page.url contains sublink.url %}class="active"{% endif %}>
+                                                    <a href="{{ sublink.url | relative_url }}" style="color: #A9233C">{{ sublink.text }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
                                 </li>
-			 </ul>
-                     </nav>
-	
+                            {% endfor %}
+			 	            <li>
+                                <a class="nav-search" data-toggle="modal" data-target="#modal">
+                                    <img src="{{ '/assets/images/search-logo.png' | relative_url }}" alt="nav search">
+                                </a>
+                            </li>
+			            </ul>
+                    </nav>
                 </div>
-                <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-                        <div class="modal-content">
-						 <div class="modal-header">
-							<h5 class="modal-title" id="exampleModalScrollableTitle">Search Docs</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							  <span aria-hidden="true">&times;</span>
-							</button>
-						  </div>
-                            <div class="modal-body">
-                                <form class="modal-search-form" action="#">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="search-input" placeholder="Search Somthing" required="">
-                                        <span class="input-group-btn">
-                                   <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-                                     </span>
-                                    </div>
-                                </form>
-                            </div>
-                            <ul id="results-container"></ul>
-                        </div>
-                    </div>
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <p style="color: #A9233C;">&#9776;</p>
                 </div>
             </div>
+
+            <ul class="menu" id="menu" style="padding-top: 5px; width: 100%;">
+                {% for link in site.data.navigation %}
+                    <li class="menu-item">
+                        <a href="{{ link.url | relative_url }}"  style="color: #A9233C;">{{ link.text }}</a>
+                        {% if link.submenu %}						
+                            <ul class="submenu">
+                                {% for sublink in link.submenu %}
+                                    <li class="submenu-item">
+                                        <a href="{{ sublink.url | relative_url }}" style="color: #A9233C">{{ sublink.text }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </header>
 <!-- End Header Area -->
+
+<style>
+    .header-navigation {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .hamburger-menu {
+        display: none;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    .menu {
+        flex-direction: column;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out; /* Add transition for smooth animation */
+        max-height: 0;
+    }
+
+    .menu-item, .submenu-item {
+        position: relative;
+        border-bottom: 1px solid rgb(0, 0, 0, 0.05);
+    }
+
+    .menu-item:last-child, .submenu-item:last-child {
+        border-bottom: none;
+    }
+
+    .menu-item > a, .submenu-item > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .menu-item > a:hover, .submenu-item > a:hover {
+        background-color: rgba(120, 120, 120, 0.1);
+    }
+
+    .submenu {
+        flex-direction: column;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        background-color: rgba(120, 120, 120, 0.1);
+
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out; /* Add transition for smooth animation */
+        max-height: 0;
+    }
+
+    .menu-item:hover .submenu {
+        display: flex;
+        max-height: 2000px;
+    }
+
+    @media (max-width: 1200px) {
+        .navigation-right {
+            display: none;
+        }
+        .hamburger-menu {
+            display: block;
+            float: right;
+            margin-top: 0.5em;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const hamburger = document.getElementById("hamburger-menu");
+        const menu = document.getElementById("menu");
+
+        function closeMenu() {
+            menu.style.maxHeight = "0px";
+        }
+
+        hamburger.addEventListener("click", function() {
+            event.stopPropagation();
+            if (menu.style.maxHeight === "0px" || menu.style.maxHeight === "") {
+                menu.style.maxHeight = menu.scrollHeight + "px"; 
+            } else {
+                closeMenu();
+            }
+        });
+
+        function checkScreenWidth() {
+            if (window.innerWidth > 1200) {
+                closeMenu(); 
+            }
+        }
+
+        // Initial check on page load
+        checkScreenWidth();
+
+        // Listen for resize events to check screen size dynamically
+        window.addEventListener("resize", function() {
+            checkScreenWidth();
+        });
+
+        document.addEventListener("click", function(event) {
+            const isClickInsideMenu = menu.contains(event.target); // Check if click is inside the menu
+
+            if (!isClickInsideMenu) {
+                closeMenu(); // Close the menu if the click is outside of it
+            }
+        });
+
+    });
+</script>
