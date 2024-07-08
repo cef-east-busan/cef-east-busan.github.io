@@ -6,31 +6,63 @@ keywords: "jekyll, github pages, blog posts"
 ---
 
 <!-- Start Posts Area -->
-<section class="posts-area bg-color1">
+{% include page_header.html %}
+
+<section class="posts-area bg-color1" style="background-color: #f9f9e2;">
    <div class="posts-wrapper inner-spacing">
       <div class="container">
          <div class="row">
             <div class="col-md-12">
-               <h1 class="heading-1">최신글</h1>
-               <div id="postContent" class="table-responsive">
+               <!-- Toggle Button -->
+               <div class="view-toggle">
+                  <button id="compactViewBtn" class="active">
+                     <img style="width:30px; height:30px;" src='/../assets/icons/list-view.png'>
+                     &nbsp;압축해서 보기
+                  </button>
+                  <button id="galleryViewBtn">
+                     <img style="width:30px; height:30px;" src='/../assets/icons/gallery-view.png'>
+                     &nbsp;확장해서 보기
+                  </button>
+               </div>
+
+               <!-- Compact View -->
+               <div id="compactView" class="table-responsive">
                   <table class="table">
                      <thead>
                         <tr>
-                           <th>Title</th>
-                           <th>Author</th>
-                           <th>Date</th>
+                           <th>제목</th>
+                           <th>카테고리</th>
+                           <th>날짜</th>
                         </tr>
                      </thead>
                      <tbody>
                         {% for post in site.posts %}
                         <tr>
-                           <td><a href="{{ post.url }}">{{ post.title }}</a></td>
-                           <td>{{ post.author }}</td>
-                           <td>{{ post.date | date: "%B %d, %Y" }}</td>
+                           <td><a href="{{ post.url }}"><strong>{{ post.title }}</strong></a></td>
+                           <td>{{ post.category }}</td>
+                           <td>{{ post.date | date: "%y.%m.%d" }}</td>
                         </tr>
                         {% endfor %}
                      </tbody>
                   </table>
+               </div>
+
+               <!-- Gallery View -->
+               <div id="galleryView" style="display: none;">
+                  <div class="row">
+                     {% for post in site.posts %}
+                     <div class="col-md-4">
+                        <div class="post-card">
+                           <img src="{{ post.post_image }}" alt="{{ post.title }}">
+                           <div class="post-info">
+                              <a href="{{ post.url }}"><strong>{{ post.title }}</strong></a>
+                              <p>{{ post.category }} {{ post.date | date: "%y.%m.%d" }}</p>
+                              <p>{{ post.excerpt }}</p>
+                           </div>
+                        </div>
+                     </div>
+                     {% endfor %}
+                  </div>
                </div>
             </div>
          </div>
@@ -38,3 +70,87 @@ keywords: "jekyll, github pages, blog posts"
    </div>
 </section>
 <!-- End Posts Area -->
+
+<script>
+   document.getElementById('compactViewBtn').addEventListener('click', function() {
+      document.getElementById('compactView').style.display = 'block';
+      document.getElementById('galleryView').style.display = 'none';
+      this.classList.add('active');
+      document.getElementById('galleryViewBtn').classList.remove('active');
+   });
+   
+   document.getElementById('galleryViewBtn').addEventListener('click', function() {
+      document.getElementById('compactView').style.display = 'none';
+      document.getElementById('galleryView').style.display = 'block';
+      this.classList.add('active');
+      document.getElementById('compactViewBtn').classList.remove('active');
+   });
+</script>
+
+<style>
+   /* Toggle Button Styles */
+   .view-toggle {
+      display: flex;
+      gap: 10px;
+   }
+
+   .view-toggle button {
+      padding: 5px 10px;
+      font-size: 16px;
+      border: none;
+      background-color: #f9f9e2;
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin-bottom: 20px;
+   }  
+
+   .view-toggle button.active::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: black;
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+   }
+
+   /* Compact View Styles */   
+   #compactView .table {
+      border: 1px solid rgb(0, 0, 0); /* Adjust border color and width */
+      border-collapse: collapse; /* Ensure table borders collapse properly */
+      width: 100%; /* Ensure table takes full width of container */
+   }
+
+   #compactView .table th, #compactView .table td {
+      border: 1px solid rgb(0, 0, 0); /* Adjust border color and width for table cells */
+      padding: 8px; /* Adjust cell padding */
+      text-align: left; /* Adjust cell text alignment */
+   }
+
+   #compactView .table thead th {
+      background-color: #ede2b4; /* Header background color */
+   }
+
+   #compactView .table tbody tr:nth-child(even) {
+      background-color: #f9f9f9; /* Alternate row background color */
+   }
+
+   /* Gallery View Styles */
+   #galleryView .post-card {
+       padding: 15px;
+       margin-bottom: 15px;
+       text-align: center;
+       width: 100%;
+   }
+   
+   #galleryView .post-card img {
+      width: 100%;
+      height: auto;
+   }
+   
+   #galleryView .post-card .post-info {
+       margin-top: 10px;
+   }
+</style>

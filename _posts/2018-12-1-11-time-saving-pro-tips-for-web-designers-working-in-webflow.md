@@ -2,11 +2,9 @@
 layout: post
 title: "11 time-saving pro tips for web designers working in Webflow"
 date: 2018-12-01 18:14:30 +0600
-author: Insert Author Name
-tags: 새소식반 주간 강습회
+tags: 사역
 category: 새소식반
 post_image: https://cdn.stocksnap.io/img-thumbs/960w/VJM1ZWXLPY.jpg
-comment: true
 excerpt: magna vivamus varius. Faucibus vestibulum faucibus elementum vulputate suscipit. Sit convallis litora nunc, vestibulum nibh tincidunt, in qui vel dui elit feugiat nulla, vehicula
 ---
 
