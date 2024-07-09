@@ -1,9 +1,16 @@
-breadcrumbs are not clickable...
-  -  need to figure out how to navigate without actually changing URI
-breadcrumb category has no space for some reason...
-table is displayed at the bottom of posts
-  - not clickable nor filtered table...
 
-최신글에 post click 하면 다른 URI으로 감
-  - clean up the look for actual page
-add option for the post to open as its own page
+FIXES NEEDED
+-- make sure the mobile (small window) experience is good
+  1. when there are lots of columns, it should stack
+  2. the filter section in latest-post should be retractable
+
+-- map doesn't work on Github Pages but works locally..
+  - when it was https it didn't authenticate but when it is http it just doesn't load
+
+FEATURES NEEDED
+-- the post layout needs to be updated
+  - should have page-header (maybe look different)
+  - a back button
+  - previous and next button
+
+-- Google Forms --> Google Script --> Github !!!
