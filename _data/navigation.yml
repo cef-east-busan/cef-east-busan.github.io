@@ -5,9 +5,9 @@
   url: /pages/about-us
   submenu: 
   - text: 팀 소개
-    url: /pages/our-team
+    url: /pages/about-us/our-team
   - text: 신념 선언
-    url: /pages/statement-of-faith
+    url: /pages/about-us/statement-of-faith
 
 - text: 어린이전도협회란?
   url: /pages/what-is-child-evangelism-fellowship
@@ -16,29 +16,29 @@
   url: /pages/ministry-overview
   submenu:
   - text: 새소식반
-    url: /docs/good-news-club
+    url: /pages/ministry-overview/good-news-club
   - text: 야외전도
-    url: /docs/outdoor-evangelism
+    url: /pages/ministry-overview/outdoor-evangelism
   - text: 3일클럽
-    url: /docs/3-day-club
+    url: /pages/ministry-overview/3-day-club
   - text: 성경캠프
-    url: /docs/bible-camp
+    url: /pages/ministry-overview/bible-camp
   - text: 여름성경학교
-    url: /docs/summer-bible-school
+    url: /pages/ministry-overview/summer-bible-school
   - text: 파티전도
-    url: /docs/party-evangelism
+    url: /pages/ministry-overview/party-evangelism
 
 - text: 교사교육&nbsp;<img style="width:10px; height:10px;" src='/../assets/icons/arrow-down.png' alt='arrow-down'>
   url: /pages/teacher-training
   submenu:
   - text: 3일클럽 교사교육
-    url: /docs/3-day-club-training
+    url: /pages/teacher-training/3-day-club-training
   - text: TCE 교사대학
-    url: /docs/tce-teacher-college
+    url: /pages/teacher-training/tce-teacher-college
   - text: 슈퍼 세미나
-    url: /docs/super-seminar
+    url: /pages/teacher-training/super-seminar
   - text: 새소식반 주간 강습회
-    url: /docs/good-news-club-weekly-workshop
+    url: /pages/teacher-training/good-news-club-weekly-workshop
     
 - text: 최신글
   url: /pages/latest-posts
