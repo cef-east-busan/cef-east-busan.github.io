@@ -10,9 +10,71 @@ keywords: "jekyll, github pages, blog posts"
 
 <section class="posts-area bg-color1" style="background-color: #f9f9e2;">
    <div class="posts-wrapper inner-spacing">
-      <div class="container">
+      <div class="container-fluid">
          <div class="row">
-            <div class="col-md-12">
+            <!-- Sidebar for filters -->
+            <div class="col-md-2">
+               <div class="filter-sidebar">
+                  <div class="filter-options">
+                     <h5>범주로 필터</h5>
+                     <button id="uncheckAllBtn"></button>
+                  </div>
+                  <ul>
+                     <li>
+                        <label>
+                           <input type="checkbox" class="category-filter" value="새소식반"> 새소식반
+                        </label>
+                     </li>
+                     <li>
+                        <label>
+                           <input type="checkbox" class="category-filter" value="야외전도"> 야외전도
+                        </label>
+                     </li>
+                     <li>
+                        <label>
+                           <input type="checkbox" class="category-filter" value="3일클럽"> 3일클럽
+                        </label>
+                     </li>
+                     <li>
+                        <label>
+                           <input type="checkbox" class="category-filter" value="성경캠프"> 성경캠프
+                        </label>
+                     </li>
+                     <li>
+                        <label>
+                           <input type="checkbox" class="category-filter" value="여름성경학교"> 여름성경학교
+                        </label>
+                     </li>
+                     <li>
+                        <label>
+                           <input type="checkbox" class="category-filter" value="파티전도"> 파티전도
+                        </label>
+                     </li>
+                     <li>
+                        <label>
+                           <input type="checkbox" class="category-filter" value="3일클럽 교사교육"> 3일클럽 교사교육
+                        </label>
+                     </li>
+                     <li>
+                        <label>
+                           <input type="checkbox" class="category-filter" value="TCE 교사대학"> TCE 교사대학
+                        </label>
+                     </li>
+                     <li>
+                        <label>
+                           <input type="checkbox" class="category-filter" value="슈퍼 세미나"> 슈퍼 세미나
+                        </label>
+                     </li>
+                     <li>
+                        <label>
+                           <input type="checkbox" class="category-filter" value="새소식반 주간 강습회"> 새소식반 주간 강습회
+                        </label>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <!-- Body -->
+            <div class="col-md-10">
                <!-- Toggle Button -->
                <div class="view-toggle">
                   <button id="compactViewBtn" class="active">
@@ -28,19 +90,12 @@ keywords: "jekyll, github pages, blog posts"
                <!-- Compact View -->
                <div id="compactView" class="table-responsive">
                   <table class="table">
-                     <thead>
-                        <tr>
-                           <th>제목</th>
-                           <th>카테고리</th>
-                           <th>날짜</th>
-                        </tr>
-                     </thead>
                      <tbody>
                         {% for post in site.posts %}
-                        <tr>
+                        <tr data-category="{{ post.category }}">
                            <td><a href="{{ post.url }}"><strong>{{ post.title }}</strong></a></td>
                            <td>{{ post.category }}</td>
-                           <td>{{ post.date | date: "%y.%m.%d" }}</td>
+                           <td>{{ post.date | date: "%Y-%m-%d" }}</td>
                         </tr>
                         {% endfor %}
                      </tbody>
@@ -51,9 +106,9 @@ keywords: "jekyll, github pages, blog posts"
                <div id="galleryView" style="display: none;">
                   <div class="row">
                      {% for post in site.posts %}
-                     <div class="col-md-4">
+                     <div class="col-md-4" data-category="{{ post.category }}">
                         <div class="post-card">
-                           <img src="{{ post.post_image }}" alt="{{ post.title }}">
+                           <img src="{{ post.post_image }}" alt="{{ post.title }}" style="border-radius: 10px;">
                            <div class="post-info">
                               <a href="{{ post.url }}"><strong>{{ post.title }}</strong></a>
                               <p>{{ post.category }} {{ post.date | date: "%y.%m.%d" }}</p>
@@ -85,13 +140,122 @@ keywords: "jekyll, github pages, blog posts"
       this.classList.add('active');
       document.getElementById('compactViewBtn').classList.remove('active');
    });
+
+   const filterCheckboxes = document.querySelectorAll('.category-filter');
+
+   // Attach change event listeners to all category checkboxes
+   filterCheckboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+         // Get all checked categories
+         const selectedCategories = Array.from(filterCheckboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value);
+         
+         // Call filterPosts function with selected categories
+         filterPosts(selectedCategories);
+         adjustOpacity(filterCheckboxes);
+      });
+   });
+
+   // Function to filter posts based on selected categories
+   function filterPosts(categories) {
+      console.log("categories selected:", categories);
+      // Select all posts in both views (compact and gallery)
+      const compactPosts = document.querySelectorAll('#compactView tr');
+      const galleryPosts = document.querySelectorAll('#galleryView .col-md-4');
+      // If no categories selected, show all posts
+      if (categories.length === 0) {
+         compactPosts.forEach(post => post.style.display = 'table-row');
+         galleryPosts.forEach(post => post.style.display = 'block');
+         return;
+      }
+
+      // Loop through compact view posts and apply display logic
+      compactPosts.forEach(post => {
+         const postCategory = post.getAttribute('data-category');
+         post.style.display = categories.includes(postCategory) ? 'table-row' : 'none';
+      });
+
+      // Loop through gallery view posts and apply display logic
+      galleryPosts.forEach(post => {
+         const postCategory = post.getAttribute('data-category');
+         post.style.display = categories.includes(postCategory) ? 'block' : 'none';
+      });
+   }
+
+   // Function to adjust opacity based on checked state
+   function adjustOpacity(checkboxes) {
+      const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+      if (anyChecked) {
+         checkboxes.forEach(checkbox => {
+            checkbox.parentElement.style.opacity = '1';
+         });
+      } else {
+         checkboxes.forEach(checkbox => {
+            checkbox.parentElement.style.opacity = '0.5'; 
+         });
+      }
+   }
+
+   // Initial call to adjust opacity based on initial state
+   adjustOpacity(filterCheckboxes);
+
+   // Event listener for unchecking all checkboxes
+   document.getElementById('uncheckAllBtn').addEventListener('click', function() {
+      filterCheckboxes.forEach(checkbox => {
+         checkbox.checked = false;
+      });
+
+      // After unchecking all, adjust opacity again
+      adjustOpacity(filterCheckboxes);
+
+      // Also filter posts again
+      filterPosts([]);
+   });
+
 </script>
 
 <style>
+   /* Sidebar Styles */
+
+   .filter-sidebar {
+      padding: 1em;
+      border: 0.8px solid black;
+      border-radius: 20px;
+   }
+
+   .filter-sidebar ul {
+      list-style: none;
+      padding: 0;
+   }
+
+   .filter-sidebar ul li label {
+      cursor: pointer;
+   }
+
+   .filter-sidebar ul li input[type="checkbox"] {
+      margin-right: 5px;
+      vertical-align: middle;
+   }
+
+   .filter-options {
+      display: flex;
+      justify-content: space-between;
+   }
+
+   .filter-options button {
+      background: url('/../assets/icons/reload.png');
+      background-size: cover;
+      width: 20px; 
+      height: 20px;
+      border: none;
+      background-color: transparent;
+   }
+
    /* Toggle Button Styles */
    .view-toggle {
       display: flex;
-      gap: 10px;
    }
 
    .view-toggle button {
@@ -118,13 +282,13 @@ keywords: "jekyll, github pages, blog posts"
 
    /* Compact View Styles */   
    #compactView .table {
-      border: 1px solid rgb(0, 0, 0); /* Adjust border color and width */
+      border: none; /* Adjust border color and width */
       border-collapse: collapse; /* Ensure table borders collapse properly */
       width: 100%; /* Ensure table takes full width of container */
    }
 
    #compactView .table th, #compactView .table td {
-      border: 1px solid rgb(0, 0, 0); /* Adjust border color and width for table cells */
+      border: none; /* Adjust border color and width for table cells */
       padding: 8px; /* Adjust cell padding */
       text-align: left; /* Adjust cell text alignment */
    }
