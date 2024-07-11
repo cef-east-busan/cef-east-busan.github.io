@@ -12,7 +12,7 @@ layout: page
       {% for column in section.columns %}
       <div class="home-column">
         {% if column.type == "image" %}
-        <img src="{{ column.src | relative_url }}" style="width:100%;height:85%; border-radius: 10px;">
+        <img src="{{ column.src | relative_url }}" style="margin-top: -20px; width:100%; height: 89%; border-radius: 10px;">
         {% elsif column.type == "text" %}
         <h2 style="color: #971a3c">{{ column.heading }}</h2>
         <p style>{{ column.text }}</p>
@@ -32,7 +32,7 @@ layout: page
     padding: 20px;
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 100%;
   }
   .home-column {
     flex: 1;
@@ -50,7 +50,7 @@ layout: page
     top: 0;
     left: 0;
     width: 100%;
-    height: 500px;
+    height: 100%;
     background-color: white;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
@@ -67,7 +67,7 @@ layout: page
     top: 0;
     left: 0;
     width: 100%;
-    height: 500px;
+    height: 100%;
     background-color: #f9f9e2;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
