@@ -9,14 +9,9 @@ layout: default
       <div class="row">
         <div class="col-md-12">
           <div class="post-content">
-            <p class="bread-crumb">{{ page.category }} > {{ page.tags }} > {{ page.title }}</p>
+            <p class="bread-crumb">{{ page.category }} > {{ page.title }}</p>
             <h2 class="post-title">{{ page.title }}</h2>
             <ul class="post-meta list-inline">
-              {% if page.author %}
-              <li class="list-inline-item">
-                <a href="{{ page.author_url }}">{{ page.author }}</a>
-              </li>
-              {% endif %}
               {% if page.date %}
               <li class="list-inline-item">
                 {{ page.date | date_to_long_string }}
