@@ -53,7 +53,8 @@
         <div class="container">
             <div class="navigation-box">
                 <div class="navigation-left">
-                    <a href="/"><img style="width:9em; height:3em;margin-top: 10px;" src="/assets/icons/cef-logo.png" alt="header logo"></a>
+                    <a href="/"><img class="navigation-logo" style="width:9em; height:3em;margin-top: 10px;" src="/assets/icons/cef-logo.png" alt="header logo"></a>
+                    <p class="navigation-text">동부산지회</p>
                 </div>
                 <div class="navigation-right">
                     <nav class="navigation-navbar">
@@ -418,6 +419,32 @@
             margin-top: 0.5em;
         }
     }
+
+    .navigation-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .navigation-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .navigation-logo {
+        width: 9em;
+        height: 3em;
+        margin-top: 10px;
+    }
+
+    .navigation-text {
+        color:#A9233C;
+        margin-top: 20px;
+        font-size: 1.5em;
+        margin-left: 20px; /* Adjust the spacing as needed */
+        font-family: 'serif';
+    }
+
 </style>
 
 <script>
@@ -470,11 +497,18 @@
 
   <div class="home-container" id="cef">
     <div class="home-column">
-      <img src="/assets/images/topics-bg.jpg" alt="Company Image" style="width:80%;height:80%">
+      <img src="/assets/images/topics-bg.jpg" alt="Company Image" style="width:80%;height:80%; border-radius: 20px;">
     </div>
     <div class="home-column">
-      <h2 style="color: #f5ddbe;">About Our Company</h2>
-      <p style="color: white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+      <div style="width: 70%; margin-top: -30px;">
+        <h2 style="color: #f5ddbe; margin-bottom: 20px;">국제 어린이 전도협회</h2>
+        <p style="color: white; font-size: 1.2em;">
+          교회적 관심이 성인에게만 치중되었던 1920년경 주닙께서 오버홀쳐 목사의 눈을 열어 미국 및 세계의 어린이들의 영적기아 상태를 보게 하셨습니다. <br><br>
+          그 후 10여년 동안 어린이전도와 지도자 양성에 힘쓰며 교계에 호소하였습니다. <br><br>
+          그 결과, 1937년 5월에 미국 일리노이주에서 국제 얼니이 전도협회가 탄생되었습니다.  <br><br>
+          지금은 세계 210여 개국에서 전도활동을 하여 수천만명의 어린이들이 복음을 듣고 주님을 영접하게 되었습니다.
+        </p>
+    </div>
     </div>
   </div>
 
@@ -490,7 +524,7 @@
 
   <div class="home-container" id="latest-news">
     <div class="home-column">
-      <img src="/assets/images/topics-bg.jpg" alt="Branch Image" style="width:80%;height:80%">
+      <img src="/assets/images/image3.png" alt="Branch Image" style="width:80%;height:80%; border-radius: 20px;">
     </div>
     <div class="home-column">
       <h2 style="color: #971A3C">About This Branch</h2>
@@ -513,7 +547,7 @@
     position: relative;
     width: 100%;
     height: 700px;
-    background-color: #971A3C;    
+    background-color: #971A3C;
     background-size: cover;
   }
   .splash-screen::after {
@@ -521,8 +555,9 @@
     position: absolute;
     width: 100%;
     height: 700px;
-    background: url('/assets/images/topics-bg.jpg') no-repeat center center;
-    background-size: cover;
+    background: url('/assets/images/home-wallpaper.png') no-repeat center center;
+    background-size: contain;
+    background-color: #728e70;
 
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);

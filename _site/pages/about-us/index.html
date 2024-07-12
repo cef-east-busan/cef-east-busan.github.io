@@ -53,7 +53,8 @@
         <div class="container">
             <div class="navigation-box">
                 <div class="navigation-left">
-                    <a href="/"><img style="width:9em; height:3em;margin-top: 10px;" src="/assets/icons/cef-logo.png" alt="header logo"></a>
+                    <a href="/"><img class="navigation-logo" style="width:9em; height:3em;margin-top: 10px;" src="/assets/icons/cef-logo.png" alt="header logo"></a>
+                    <p class="navigation-text">동부산지회</p>
                 </div>
                 <div class="navigation-right">
                     <nav class="navigation-navbar">
@@ -418,6 +419,32 @@
             margin-top: 0.5em;
         }
     }
+
+    .navigation-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .navigation-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .navigation-logo {
+        width: 9em;
+        height: 3em;
+        margin-top: 10px;
+    }
+
+    .navigation-text {
+        color:#A9233C;
+        margin-top: 20px;
+        font-size: 1.5em;
+        margin-left: 20px; /* Adjust the spacing as needed */
+        font-family: 'serif';
+    }
+
 </style>
 
 <script>
