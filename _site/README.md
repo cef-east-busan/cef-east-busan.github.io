@@ -27,3 +27,6 @@ MAYBE ADD
 
 WOULD BE NICE
 -- create account and comment, interactive --> foster sense of community
+
+more stuff
+- default gallery thumbnail (not necessary ig)

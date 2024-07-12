@@ -108,11 +108,11 @@ keywords: "jekyll, github pages, blog posts"
                      {% for post in site.posts %}
                      <div class="col-md-4" data-category="{{ post.category }}">
                         <div class="post-card">
-                           <img src="{{ post.post_image }}" alt="{{ post.title }}" style="border-radius: 10px;">
+                           <img src="{{ post.post_image }}" style="border-radius: 10px;">
                            <div class="post-info">
                               <a href="{{ post.url }}"><strong>{{ post.title }}</strong></a>
-                              <p>{{ post.category }} {{ post.date | date: "%y.%m.%d" }}</p>
-                              <p>{{ post.excerpt }}</p>
+                              <p>{{ post.category }} <br> {{ post.date | date: "%Y-%m-%d" }}</p>
+                              <p style="font-size: smaller;">{{ post.excerpt }}</p>
                            </div>
                         </div>
                      </div>
@@ -305,7 +305,7 @@ keywords: "jekyll, github pages, blog posts"
    #galleryView .post-card {
        padding: 15px;
        margin-bottom: 15px;
-       text-align: center;
+       text-align: left;
        width: 100%;
    }
    
