@@ -32,8 +32,11 @@
                                     {% assign active = 'active' %}
                                 {% endif %}
 
-                                <li class="{{ active }}{% if link.submenu %} themeix-dropdown has-children{% endif %}">
-                                    <a href="{{ link.url | relative_url }}"  style="color: #A9233C; font-size: medium;">{{ link.text }}</a>
+                                <li {% if link.url == '/pages/latest-posts' %} style="background-color: #A9233C;border-radius: 50px;" {% endif %}
+                                class="{{ active }}{% if link.submenu %} themeix-dropdown has-children{% endif %}">
+                                    <a {% if link.url == '/pages/latest-posts' %} style="color: white;" {% endif %}
+                                    href="{{ link.url | relative_url }}"  style="color: #A9233C; font-size: medium;">
+                                    {{ link.text }}</a>
 
                                     {% if link.submenu %}						
                                         <ul class="themeix-dropdown-item" role="menu">
