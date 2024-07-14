@@ -8,13 +8,13 @@
 ####################################################
 
 # Site settings
-title: "Doxy - Documentation Website"
-email: "themeix@gmail.com"
-description: "Doxy is a responsive Jekyll template for your documentation or knowledgebase website"
-keywords: "jekyll, minimal jekyll, jekyll theme, responsive jekyll, seo friendly blog, super fast blog, responsive"
+title: "CEF East Busan Homepage - CEF 동부산"
+email: "busancef@naver.com"
+description: "Homepage for CEF East Busan South Korea. 어린이전도협회 한국 동부산 웹사이트"
+keywords: "동부산, CEF, 송우광, 어린이전도협회, CEF 동부산"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://jekyll-doxy.netlify.app/"
-cover_image: "https://themeix.com/wp-content/uploads/dooxy-responsive-html-template-preview.png" # Image will Display in Social Media When share the website
+url: "https://cef-east-busan.github.io/"
+cover_image: "" # Image will Display in Social Media When share the website
 facebook: "https://www.facebook.com"
 twitter: "https://www.twitter.com"
 instagram: "https://www.instagram.com"
