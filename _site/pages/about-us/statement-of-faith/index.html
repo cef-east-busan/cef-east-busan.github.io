@@ -6,16 +6,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name='description' content='Doxy is a responsive Jekyll template for your documentation or knowledgebase website'>
-    <meta name="keywords" content="jekyll, minimal jekyll, jekyll theme, responsive jekyll, seo friendly blog, super fast blog, responsive">
+	<meta name='description' content='Homepage for CEF East Busan South Korea. 어린이전도협회 한국 동부산 웹사이트'>
+    <meta name="keywords" content="동부산, CEF, 송우광, 어린이전도협회, CEF 동부산">
 	<!-- Facebook Open Graph -->	
-	<meta content="Doxy - Documentation Website" property="og:site_name">
+	<meta content="CEF East Busan Homepage - CEF 동부산" property="og:site_name">
 	<meta property="og:locale" content="en_US" />
 	<meta content="신념 선언" property="og:title">
 	<meta content="article" property="og:type">
-	<meta content="Doxy is a responsive Jekyll template for your documentation or knowledgebase website" property="og:description">
+	<meta content="Homepage for CEF East Busan South Korea. 어린이전도협회 한국 동부산 웹사이트" property="og:description">
 	<meta content="http://localhost:4000/pages/about-us/statement-of-faith/" property="og:url">	
-	<meta content="https://themeix.com/wp-content/uploads/dooxy-responsive-html-template-preview.png" property="og:image">
+	<meta content="" property="og:image">
 	
 	
 		
@@ -23,8 +23,8 @@
 	<meta name="twitter:site"    content="@jekyllrb">
 	<meta name="twitter:creator" content="@">
 	<meta name="twitter:title"   content="신념 선언">	
-	<meta name="twitter:description" content="Doxy is a responsive Jekyll template for your documentation or knowledgebase website">
-	<meta name="twitter:card"  content="summary"><meta name="twitter:image" content="https://themeix.com/wp-content/uploads/dooxy-responsive-html-template-preview.png">
+	<meta name="twitter:description" content="Homepage for CEF East Busan South Korea. 어린이전도협회 한국 동부산 웹사이트">
+	<meta name="twitter:card"  content="summary"><meta name="twitter:image" content="">
     <!-- Site Title -->
     <title> 신념 선언 </title>
     <!--  Add Favicon -->
@@ -592,6 +592,20 @@
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
+  }
+
+  @media (max-width: 1200px) {
+    .home-container {
+        flex-direction: column;
+    }
+    .home-column {
+        width: 100%; /* Ensure columns take full width on small screens */
+        margin: 0; /* Remove extra margins that might cause overflow */
+    }
+    .home-column img {
+        width: 100%; /* Ensure image takes full width on small screens */
+        height: auto; /* Maintain aspect ratio */
+    }
   }
 
   .section-1 {
